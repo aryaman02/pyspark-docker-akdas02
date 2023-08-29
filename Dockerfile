@@ -1,6 +1,6 @@
 FROM python:3.10-bullseye as spark-base
 
-ARG SPARK_VERSION=3.3.2
+ARG SPARK_VERSION=3.4.1
 
 # Install tools required by the OS
 RUN apt-get update && \
@@ -36,6 +36,8 @@ FROM spark-base as pyspark
 # Install python deps
 COPY requirements/requirements.txt .
 RUN pip3 install -r requirements.txt
+
+RUN pip3 install -U "ray[default]"
 
 # Setup Spark related environment variables
 ENV PATH="/opt/spark/sbin:/opt/spark/bin:${PATH}"

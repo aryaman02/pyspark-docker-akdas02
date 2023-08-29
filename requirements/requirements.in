@@ -3,3 +3,9 @@ pandas
 pyarrow
 numpy
 pyspark
+ray
+scipy
+scikit-learn
+torch
+torchvision
+imbalanced-learn
